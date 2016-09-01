@@ -1,13 +1,8 @@
-
-Sub Macro2()
-
-Dim a, b, c, d, e, f, g, h As String
-Dim i, j, k, l, p, q, r, s As Integer
 Dim testresult As Boolean
 
-j = Cells(1, 12)
+j = Cells(2, 12)
 
-For i = 1 To j
+For i = 2 To j
     
     a = Sheets(1).Cells(i, 1)
     b = Sheets(1).Cells(i, 2)
@@ -43,18 +38,23 @@ For i = 1 To j
         End If
     Next k
 
-
+If Dir("C:\excel_welds" & client, vbDirectory) = "" Then
+    MkDir "C:\excel_welds"
+Else
+    'do nothing
+End If
 
     Application.DisplayAlerts = False
        Sheets(2).Copy
     With ActiveWorkbook
-        .SaveAs Filename:="C:\Users\plkz00149\Desktop\excel spoiny\" & a & " " & b & ".xlsx", _
+        .SaveAs Filename:="C:\excel_welds\" & a & " " & b & ".xlsx", _
     FileFormat:=xlOpenXMLWorkbook, CreateBackup:=False
         .Close 0
     End With
    
       
-Windows("duplo.xlsm").Activate
+Windows("WeldCalculator.xlsm").Activate
 Next i
 
 End Sub
+
