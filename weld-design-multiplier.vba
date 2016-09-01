@@ -1,3 +1,7 @@
+Sub Weld_Calculator_multiplier()
+
+Dim a, b, c, d, e, f, g, h As String
+Dim i, j, k, l, p, q, r, s As Integer
 Dim testresult As Boolean
 
 j = Cells(2, 12)
